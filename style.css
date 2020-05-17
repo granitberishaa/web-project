@@ -1,0 +1,222 @@
+body{
+    margin:5px;
+    padding: 0;
+}
+.wrapper{
+    max-width:1200px;
+    margin: 0px auto;
+}
+.wrapper-1{
+    background: url("../img/child.jpg") no-repeat;
+    background-size: contain;
+    height: 550px;
+}
+#top-header{
+    height: 150px;
+}
+header .top-icons{
+    float: right;
+    list-style: none;
+}
+header .top-icons li{
+    display: inline-block;
+    padding: 10px 15px;
+    border-right: 1px solid #93c520;
+}
+header .top-icons li:hover{
+    border-right: 1px solid #678a16;
+}
+header .top-icons li:last-of-type{
+    border-right: none;
+}
+header .top-icons li a{
+    text-decoration: none;
+    font-size: 19px;
+    color: #93c520;
+    font-weight: bolder;
+
+
+}
+header .top-icons li a:hover{
+
+    color: #668917;
+    transition: color 300ms;
+}
+
+#top-header h2, p{
+    display: inline-block;
+    font-family: 'sans-serif';
+}
+
+#top-header p{
+    font-size: 21px;
+}
+#top-header h2{
+    margin-left: 20px;
+
+}
+#top-header img{
+    height: 120px;
+    width: 140px;
+    margin: 10px 70px;
+}
+.wrapper-1 h3{
+    font-size: 27px;
+    margin-right: 100px;
+    margin-top: 105px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+.wrapper-1 h5{
+    width: 450px;
+    margin-left:60px;
+    font-size: 19px;
+    font-family: "Segoe Print";
+    color: #93c520;
+}
+.description{
+    display: inline-block;
+    float: right;
+    font-family: "Segoe Print";
+    color: #da9223;
+}
+main{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+main section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #fafafa;
+}
+main section div{
+    width: 25%;
+    text-align: center;
+    margin: 30px;
+}
+/*klase per me i ndreq a-jat */
+.fixA{
+    text-decoration: none;
+    color: black;
+}
+
+main section div p{
+    font-size: 20px;
+}
+main article{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+main article img{
+    margin-top: 20px;
+    width: 60%;
+}
+main article div{
+    width: 38%;
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 1px solid cadetblue;
+}
+article p{
+    text-align: justify;
+    padding: 0px 10px;
+}
+
+article div span{
+    font-weight: bold;
+}
+main article div h2{
+    font-family: "Segoe Print";
+}
+main article div h2:hover{
+    color: cadetblue;
+    font-size: 35px;
+}
+#info-items{
+    font-size: 22px;
+    color: cadetblue;
+    font-family: Calibri;
+}
+main .under-section{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    background-color: #e7e7e7;
+}
+main .under-section-box-1{
+    padding: 10px;
+    width: 40%;
+}
+main .under-section-box-2{
+    width: 55%;
+}
+main .under-section-items{
+    list-style-type: none;
+    padding: 0;
+}
+main .under-section-items li a{
+    text-decoration: none;
+    font-size: 25px;
+    line-height: 40px;
+    color: #4a4a4a;
+}
+.under-section h2{
+    font-size: 30px;
+    color: #4a4a4a;
+}
+
+footer{
+    background-image: linear-gradient(to right, #668917 , mediumseagreen);
+    color: white;
+}
+
+footer .container{
+    padding: 30px;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.left-side{
+    width: 40%;
+
+}
+.right-side{
+    width: 55%;
+}
+
+.left-side .left-side-box img{
+    width: 100px;
+}
+.left-side .left-side-box h3{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+}
+.left-side-box div {
+    vertical-align: top;
+    display: inline-block;
+}
+.right-side .right-side-box-1 a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+}
+.left-side-box:first-of-type{
+    border-bottom: 2px solid white;
+}
+.right-side{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.right-side-box-1{
+    width: 30%;
+
+}
+
