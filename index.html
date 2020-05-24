@@ -1,37 +1,36 @@
-  
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>E-health</title>
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-    </head>
-    <body>
-        <div class="wrapper">
-            <div class="wrapper-1">
-                <header id="top-header">
-                    <a href="index.html"><img src="../img/logo.png" alt=""></a>
-                    <ul class="top-icons">
-                        <li><a href="#">PACIENTI</a></li>
-                        <li><a href="#">SHERBIME</a></li>
-                        <li><a href="mjeku.html">MJEKU</a></li>
-                        <li><a href="hospitals.html">SPITALET</a></li>  
-                        <li><a href="#">MENU</a></li>
-                        <li id="authButton"><button onclick="openLogin()">Login</button></li>
-                        <li id="authButton"><button onclick="openRegister()">Register</button></li>
-                    </ul>
-                </header>
-                <div class="description">
-                <h3>Health first, health application second!</h3>
-                <h5>Lorem ipsum dolor sit amet consequuntur culpa isi numquam quam rerum saepe, sunt ut voluptate voluptates voluptatum.</h5>
-                </div>
-             </div>
-        <div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-health</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+</head>
+<body>
+<div class="wrapper">
+    <div class="wrapper-1">
+        <header id="top-header">
+            <a href="index.html"><img src="../img/logo.png" alt=""></a>
+            <ul class="top-icons">
+                <li><a href="#">PACIENTI</a></li>
+                <li><a href="services.html">SHERBIME</a></li>
+                <li><a href="mjeku.html">MJEKU</a></li>
+                <li><a href="hospitals.html">SPITALET</a></li>
+                <li><a href="#">MENU</a></li>
+                <li id="authButton"><button onclick="openLogin()">Login</button></li>
+                <li id="authButton"><button onclick="openRegister()">Register</button></li>
+            </ul>
+        </header>
+        <div class="description">
+            <h3>Health first, health application second!</h3>
+            <h5>Lorem ipsum dolor sit amet consequuntur culpa isi numquam quam rerum saepe, sunt ut voluptate voluptates voluptatum.</h5>
+        </div>
+    </div>
+    <div>
         <main>
             <section>
                 <div>
@@ -57,7 +56,7 @@
                 <div style="margin-top: 80px">
                     <h2>Si te mbrohemi nga viruset!</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, adipisci aperiam atque commodi corporis cum exercitationem impedit itaque iusto maxime nesciunt nobis quas quos sapiente tempora totam veniam vero voluptatem.tque dicta dolor, enim eos error esse eveniet, exercitationem facere facilis, maxime molestias nam neque nobis quas quis sit voluptate. Facere, fuga illo? A, amet consequuntur dolor enim exercitationem perferendis.</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum delectus dignissimos, dolore error harum iste porro quos tenetur velit vero. Beatae blanditiis earum fuga impedit labore necessitatibus sequi suscipit veniam!
-                    <span><a style="color: #40570e" href="#">vazhdoni leximin...</a></span></p>
+                        <span><a style="color: #40570e" href="#">vazhdoni leximin...</a></span></p>
                 </div>
                 <img style="margin-top: 90px" src="../img/virus.jpg" alt="Fotoja e virusit">
             </article>
@@ -84,57 +83,57 @@
             </div>
             <div id="loginPage" class="modal">
                 <span onclick="closeLogin()"
-                class="close" title="Close Modal">&times;</span>
+                      class="close" title="Close Modal">&times;</span>
                 <form class="modal-content animate" action="/action_page.php">
-                  <div class="container">
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
-              
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-              
-                    <button type="button" onclick="loginUser()">Login</button>
-                    <label>
-                      <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
-                  </div>
-              
-                  <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="closeLogin()" class="cancelbtn">Cancel</button>
-                    <button type="button" onclick="openRegisterPage()" class="registerBtn">Register</button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                  </div>
+                    <div class="container">
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+
+                        <button type="button" onclick="loginUser()">Login</button>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                    </div>
+
+                    <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="closeLogin()" class="cancelbtn">Cancel</button>
+                        <button type="button" onclick="openRegisterPage()" class="registerBtn">Register</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                    </div>
                 </form>
             </div>
             <div id="registerPage" class="modal">
                 <span onclick="closeRegister()"
-                class="close" title="Close Modal">&times;</span>
+                      class="close" title="Close Modal">&times;</span>
                 <form class="modal-content animate" action="/action_page.php">
-                  <div class="container">
-                    <label for="name"><b>Name</b></label>
-                    <input type="text" id="name" placeholder="Enter Name" name="name" required>
+                    <div class="container">
+                        <label for="name"><b>Name</b></label>
+                        <input type="text" id="name" placeholder="Enter Name" name="name" required>
 
-                    <label for="surnmae"><b>Surname</b></label>
-                    <input type="text" placeholder="Enter Surname" name="surname" required>
+                        <label for="surnmae"><b>Surname</b></label>
+                        <input type="text" placeholder="Enter Surname" name="surname" required>
 
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
-              
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-                    
-                    <label for="pswConfirmation"><b>Confirm Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="pswConfirmation" required>
-                    
-                    <button type="button" onclick="registerUser()">Register</button>
-                    <label>
-                      <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
-                  </div>
-              
-                  <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="closeRegister()" class="cancelbtn">Cancel</button>
-                  </div>
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" name="email" required>
+
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+
+                        <label for="pswConfirmation"><b>Confirm Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="pswConfirmation" required>
+
+                        <button type="button" onclick="registerUser()">Register</button>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                    </div>
+
+                    <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="closeRegister()" class="cancelbtn">Cancel</button>
+                    </div>
                 </form>
             </div>
         </main>
@@ -157,7 +156,7 @@
                 <div class="right-side">
                     <div class="right-side-box-1">
                         <h3><a href="hospitals.html">Spitalet</a></h3>
-                        <h3><a href="#">Sherbimet</a></h3>
+                        <h3><a href="services.html">Sherbimet</a></h3>
                         <h3><a href="#">Mjeket</a></h3>
                         <h3><a href="#">Shpallje</a></h3>
 
@@ -176,7 +175,6 @@
                 </div>
             </div>
         </footer>
-        <script type="text/javascript" src="../scripts/indexScript.js"></script>
-    </body>
+        <script type="text/javascript" src="../scripts/IndexScript.js"></script>
+</body>
 </html>
-
