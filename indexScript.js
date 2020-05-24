@@ -29,6 +29,27 @@ function openLogin(){
     login.style.display='block'
 }
 function registerUser(){
-    let name = document.getElementById("name")
-    console.log(name)
+    checkValue("name")
+    checkValue("surname")
+    checkValue("email")
+    checkPassword("psw", "pswConfirmation")
+}
+
+function checkValue(value){
+    let valueCheck = document.getElementsByName(`${value}`)[0].value
+    console.log(valueCheck)
+    if(valueCheck){
+        return true
+    } else {
+        alert(`invalid value for ${value}`)
+    }
+
+}
+function checkPassword(psw, pswConf){
+    if(psw != pswConf){
+        alert("Passwords dont match");
+    }
+}
+function loginUser(){
+
 }
