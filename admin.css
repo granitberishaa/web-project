@@ -1,0 +1,25 @@
+.bg-green{
+    /*background-color: #70c251;*/
+    background-image: linear-gradient(to right, #70C251, #78cd9e);
+}
+.cl-white{
+    color: white;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.mt-40{
+    margin-top: 40px;
+}
+.mt-50{
+    margin-top: 50px;
+}
+.mt-80{
+    margin-top: 80px;
+}
+.fz25{
+    font-size: 25px;
+}
+.bg-gr{
+    background-color: #c6fde3;
+}
