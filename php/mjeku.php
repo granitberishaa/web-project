@@ -8,31 +8,12 @@
     <title>Mjeku</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/mjeku.css">
+    <script type="text/javascript" src="../scripts/indexScript.js"></script>
 </head>
 <body>
 
 <div class="wrapper">
-    <header id="top-header">
-        <a href="index.html"><img src="../img/logo.png" alt=""></a>
-
-        <ul class="top-icons">
-            <li><a href="#">PACIENTI</a></li>
-            <li>
-                <div class="dropdown">
-                    <a href="rrethNesh.html"><span class="rrN">RRETH NESH</span></a>
-                    <div class="dropdown-content">
-                        <a href="vizioniYne.html"><p>Vizione yne</p></a>
-                        <a href="mjeku.html"><p>Mjeket</p></a><br>
-                        <a href="siguria.html"><p>Siguria</p></a>
-                        <a href="skuadraJone.html"><p>Skuadra jone</p></a>
-                    </div>
-                </div>
-            </li>
-            <li><a href="mjeku.html">MJEKU</a></li>
-            <li><a href="hospitals.html">SPITALET</a></li>
-            <li><a href="#">MENU</a></li>
-        </ul>
-    </header>
+    <?php include('../include/header.php');?>
     <main>
         <h2>Mjeket tone me te vleresuar</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at atque impedit ipsa, optio quidem unde vitae voluptatum? Deserunt earum, excepturi id illo laudantium officia omnis praesentium quae repellendus voluptatibus.</p>
@@ -57,41 +38,7 @@
         </div>
 
     </main>
-    <footer>
-        <div class="container">
-            <div class="left-side">
-                <div class="left-side-box">
-                    <img src="../img/logo.png" alt="Logo photo">
-                    <div>
-                        <h3>E-health aplikacioni</h3><br/>
-                        <p>info@e-healthcare.com</p>
-                    </div>
-                </div>
-                <div class="left-side-box">
-                    <div>
-                        <p>Ky portal mirëmbahet nga kompania "E-health". Materialet dhe informacionet në këtë portal nuk mund të kopjohen, të shtypen, ose të përdoren në çfarëdo forme tjetër për qëllime përfitimi, pa miratimin e drejtuesve të "E-health". Për ta shfrytëzuar materialin e këtij portali obligoheni t'i pranoni Kushtet e përdorimit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="right-side">
-                <div class="right-side-box-1">
-                    <h3><a href="hospitals.html">Spitalet</a></h3>
-                    <h3><a href="rrethNesh.html">Rreth nesh</a></h3>
-                    <h3><a href="mjeku.html">Mjeket</a></h3>
-                    <h3><a href="#">Shpallje</a></h3>
-
-                </div>
-                <div class="right-side-box-1">
-                    <h3><a href="#">Lokacionet</a></h3>
-                    <h3><a href="#">Keshilla</a></h3>
-                    <h3><a href="#">Shendeti</a></h3>
-                    <h3><a href="#">Te reja</a></h3>
-
-                </div>
-
-            </div>
-        </div>
-    </footer>
+    <?php include('../include/footer.php');?>
 </div>
 
 </body>
