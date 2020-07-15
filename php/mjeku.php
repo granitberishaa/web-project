@@ -27,13 +27,13 @@ $mjeket = mysqli_query($connection, $qb) or die("Error description: " . mysqli_e
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at atque impedit ipsa, optio quidem unde vitae voluptatum? Deserunt earum, excepturi id illo laudantium officia omnis praesentium quae repellendus voluptatibus.</p>
         <div class="box">
         <?php foreach($mjeket as $mjek): ?>
-            <div class="box-1"><img class="imgSz" src="<?php echo '../img/mjeket/'.$mjek['User_Id'].'.'.$mjek['photo'];?>" alt=""><br><p><?php echo "Dr.".$mjek['Name']." ".$mjek['LastName'] ?></p></div>
+            <div class="box-1"><img class="imgSz" src="<?php echo '../img/users/'.$mjek['User_Id'].'.'.$mjek['photo'];?>" alt=""><br><p><?php echo "Dr.".$mjek['Name']." ".$mjek['LastName'] ?></p></div>
         <?php endforeach ?>
          </div>
         <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias atque autem consequatur consequuntur dicta doloribus eius eos explicabo ipsam iste, itaque laudantium neque perspiciatis recusandae repudiandae sapiente tenetur ut.</span><span>Cum dicta ducimus esse eveniet ex, illo inventore iure maiores, minus mollitia necessitatibus nobis nostrum porro. Ad amet aspernatur commodi deserunt eos illo, magni molestias mollitia quasi repellat similique voluptatibus?</span></p>
 
         <div class="box">
-            <div class="box-2"><img style="width: 100%" src="../img/mjeket.jpg" alt="mjeket"></div>
+            <div class="box-2"><img style="width: 100%" src="../img/mejekt.jpg" alt="mjeket"></div>
             <div class="box-2"><h3 style="font-size: 25px; font-family: 'Segoe Print'; color: #5c5c5c; margin-left: 20px">Stomatologet me te perzgjedhur te repartit</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque deleniti eius error fuga modi recusandae rem tenetur. Debitis eaque est harum natus voluptatibus! Eligendi eveniet minus nostrum perspiciatis praesentium.</p></div>
         </div>
 

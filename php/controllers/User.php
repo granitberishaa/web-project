@@ -1,10 +1,8 @@
 <?php
 class User 
 {
-    private $name;
-    public static $age = 44;
 
-    public function createUser($Name, $LastName, $Age, $Gender, $Qendra, $Email, $Password , $Priority)
+    public function createUser($Name, $LastName, $Age, $Gender, $Qendra, $Email, $Password , $Priority, $Photo, $DateCreated, $LastModified)
     {
       require('C:\\wamp64\\www\\web-project\\php\\config.php');
       $sqlCommandForEmail = "SELECT * FROM Users where Email = '$Email'";
@@ -14,14 +12,18 @@ class User
   
      if (mysqli_num_rows($result2) >= 1) {
           $_SESSION['ErrorMessage'] = "The email address you have entered is already registered.";
+          return false;
       } else {
-          $sql = "insert into users(Password, Email, Name, LastName, Age, Gender, Priority, Qendra) values ('$Password','$Email','$Name', '$LastName', '$Age','$Gender', '$Priority', '$Qendra')";
+          $PasswordHash = password_hash($_POST['Password'], PASSWORD_DEFAULT); //Hashing password.
+          $sql = "insert into users(Password, Email, Name, LastName, Age, Gender, Priority, Qendra, Photo, DateCreated, LastModified) values ('$PasswordHash','$Email','$Name', '$LastName', '$Age','$Gender', '$Priority', '$Qendra', '$Photo', '$DateCreated', '$LastModified')";
   
           mysqli_query($connection, $sql) or die("Error description: " . mysqli_error($connection));
   
           $_SESSION['Message'] = 'User jas been added succefully';
           $_SESSION['RedirectURL'] = 'admin_Pacienti.php';
           header("Location: admin_Pacienti.php");
+      
+          return true;
           exit();
       }
     }
@@ -59,9 +61,18 @@ class User
     
     }
 
-    public static function randomNumber()
+    public static function deleteUser($id)
     {
-        return '123123123';
+      require('C:\\wamp64\\www\\web-project\\php\\config.php');
+      $sqlCommandForEmail = "SELECT * FROM Users where User_Id = '$id'";
+
+      $result = mysqli_query($connection, $sqlCommandForEmail);
+  
+  
+     if (mysqli_num_rows($result2) >= 1) {}
+    }
+    static function editUser($id){
+
     }
 
   

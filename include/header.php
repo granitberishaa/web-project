@@ -36,7 +36,7 @@ if(!isset($_SESSION))
       </li>
       <?php if(isset($_SESSION["User_ID"])): ?>
         <?= $_SESSION["Name"] ?>
-        <li id="authButton"><button onclick="window.location.href = 'logout.php';">Logout</button></li>
+        <li id="authButton"><button onclick="window.location.href = 'controllers/logout.php';">Logout</button></li>
       <?php else: ?>
         <li id="authButton"><button onclick="openLogin()">Login</button></li>
         <li id="authButton"><button onclick="openRegister()">Register</button></li>

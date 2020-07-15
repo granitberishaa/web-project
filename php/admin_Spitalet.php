@@ -32,7 +32,8 @@
 			    echo "<script>alert('A problem occurred creating product.');</script>";
 		    }
 	}
-	}
+    }
+    
 
  ?>
 <!DOCTYPE html>
@@ -58,8 +59,33 @@
         <div class="col-sm-8 bg-gr" style="height: auto">
             <i class="fas fa-user-md fa-4x col-sm-3 text-right mt-40"></i>
             <h2 class="col-sm-3 mt-50 ">Spitalet</h2>
-            <button class="col-sm-3 mt-50">Shiko te gjitha spitalet</button>
-
+            <form action="admin_Spitalet.php" class="col-sm-12 " method="get">
+            <button class="col-sm-3" type="submit" name="getHospitals">Shiko te gjitha spitalet</button>
+            </form>
+            <?php
+                 if(isset($_GET['getHospitals'])){
+                    $sqlRow = 'SELECT * FROM spitalet';
+            
+                    $results = mysqli_query($connection, $sqlRow);
+            
+                    echo "<table id='Records'>
+                    <tr>
+                    <th>Name</th>
+                    <th>Location</th>\
+                    </tr>";
+                    while ($row = mysqli_fetch_assoc($results)) {
+                        $id = $row['id']; //Merr username per me ja dergu si parameter nese deshiron me editu ose me fshi.
+                        echo "<tr>
+                <td>" . $row['name'] . "</td>
+                <td>" . $row['location'] . "</td>
+                <td><a href=\"updateUser.php?edit=$id\"><img src=\"../images/update.png\" width=\"30\" height=\"30\" style=\"margin-left: 25%;\"></a></td>
+                <td><a href=\"deleteUser.php?edit=$id\"><img src=\"../images/delete.png\" width=\"30\" height=\"30\" style=\"margin-left: 25%;\"></a></td>
+              </tr>";
+                    }
+                    echo "</table>";
+                    
+                }
+            ?>
             <form  class="col-sm-12 mt-80" action="admin_Spitalet.php" method="post"  enctype="multipart/form-data">
                 <label for="emri" class="col-sm-3 mt-10 fz25 ">Emri:</label>
                 <input style="width: 50%" type="text" name="Name" id="emri"   pattern="[a-zA-Z0-9\s]{5,30}" oninvalid="setCustomValidity('Emri i Qendres Mjekesore duhet te jete te pakten 5 karaktere')" onchange="try{setCustomValidity('')}catch(e){}" required ><br>

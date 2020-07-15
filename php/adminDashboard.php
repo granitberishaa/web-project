@@ -45,7 +45,7 @@ if(!(isset($_SESSION["IsAdmin"]) && $_SESSION["IsAdmin"]))
 <!--            <h3><a class="cl-white" href="#">Settings</a></h3><hr>-->
 
             <i class="fas fa-user-md fa-2x col-sm-3"></i>
-            <h3><a class="cl-white" href="logout.php">Log out</a></h3>
+            <h3><a class="cl-white" href="controllers/logout.php">Log out</a></h3>
         </div>
 
 <!--        right-side-->
