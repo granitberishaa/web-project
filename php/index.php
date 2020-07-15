@@ -1,9 +1,4 @@
-<?php
- if(!isset($_SESSION['ErrorMessage']))
-     $_SESSION['ErrorMessage'] = '';
- include ('controllers/login.php');
- include ('controllers/register.php');
-?>
+
 
 <!doctype html>
 <html lang="en">
@@ -22,7 +17,9 @@
 <div class="wrapper">
     <div class="wrapper-1">
     <?php include('../include/header.php');?>
+    <?php if(isset($_SESSION['ErrorMessage'])):?>
     <p class="ErrorMessage"><?php echo $_SESSION['ErrorMessage'] ?></p>
+    <?php endif; ?>
         <div class="description">
             <h3>Health first, health application second!</h3>
             <h5>Lorem ipsum dolor sit amet consequuntur culpa isi numquam quam rerum saepe, sunt ut voluptate voluptates voluptatum.</h5>

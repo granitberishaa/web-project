@@ -31,10 +31,8 @@ function openLogin(){
 function registerUser(){
     if (checkValue("Name") && checkValue("LastName") && checkValue("Email") && checkValue("Gender")  && checkValue("Age") && checkPassword("Password", "PasswordConfirmation"))
        {
-            console.log('vvvv')
            return true;
        } else {
-           console.log("gggg");
            alert("Validation failed")
            return false
        }

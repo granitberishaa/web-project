@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 $_SESSION['ErrorMessage'] = "";
 echo isset($_POST['RegisterButton']);
 
