@@ -7,11 +7,6 @@
      header("Location: index.php");
      
      exit();
- } else if (isset($_GET['getUsers'])){
-    $user = new User();
-    $users = $user->getAllUsers(0);
-    
-     
  } else if (isset($_POST["addUser"])){
      $user = new User();
      $user->createUser($_POST['Name'],$_POST['LastName'],$_POST['Age'],$_POST['Gender'],$_POST['Qendra'], $_POST['Email'],$_POST['Password'], 0);
@@ -36,29 +31,41 @@
         <?php include ("../include/row.php") ?>
 
         <!--        right-side-->
-        <div class="col-sm-8 bg-gr" style="height: 750px;">
-            <i class="fas fa-user-md fa-4x col-sm-3 text-right mt-40"></i>
+
+        <div class="col-sm-8 bg-gr" style="height: auto;">
+            <!-- <i class="fas fa-user-md fa-4x col-sm-3 text-right mt-40"></i> -->
             <h2 class="col-sm-3 mt-50 ">Pacienti</h2>
-            <form action="admin_Pacienti.php" class="col-sm-12 mt-80" method="get">
-            <button class="col-sm-3 mt-50" type="submit" name="getUsers">Shiko te gjithe pacientet</button>
+            <form action="admin_Pacienti.php" class="col-sm-12 " method="get">
+            <button class="col-sm-3 " type="submit" name="getUsers">Shiko te gjithe pacientet</button>
             </form>
+            <?php
+        if (isset($_GET['getUsers'])){
+    $user = new User();
+    $users = $user->getAllUsers(0); 
+ }
+        ?>
             <form action="admin_Pacienti.php" method="post" class="col-sm-12 mt-80">
                 <label for="emri" class="col-sm-3 mt-10 fz25 ">Emri:</label>
-                <input style="width: 50%" type="text" name="Name" id="emri"><br>
+                <input style="width: 50%" type="text" name="Name" id="emri"   pattern="[a-zA-Z0-9\s]{3,20}" oninvalid="setCustomValidity('Emri juaj duhet te jete te pakten 3 karaktere')" onchange="try{setCustomValidity('')}catch(e){}" required ><br>
+
                 <label for="mbiemri" class="col-sm-3 mt-10 fz25 ">Mbiemri:</label>
-                <input style="width: 50%" type="text" name="LastName" id="mbiemri"><br>
+                <input style="width: 50%" type="text" name="LastName" id="mbiemri" pattern="[a-zA-Z0-9\s]{3,20}" oninvalid="setCustomValidity('Mbiemri juaj duhet te jete te pakten 3 karaktere')" onchange="try{setCustomValidity('')}catch(e){}" required><br>
+                
                 <label for="mosha" class="col-sm-3 mt-10 fz25 ">Mosha :</label>
-                <input style="width: 50%" type="text" name="Age" id="mosha"><br>
+                <input style="width: 50%" type="text" name="Age" id="mosha" pattern="[a-zA-Z0-9\s]{2,20}"  oninvalid="setCustomValidity('Mosha duhet te jete 12-100')" onchange="try{setCustomValidity('')}catch(e){}" required><br>
+                
                 <label for="gjinia" class="col-sm-3 mt-10 fz25 ">Gjinia :</label>
-                <input style="width: 50%" type="text" name="Gender" id="gjinia"><br>
+                <input style="width: 50%" type="text" name="Gender" id="gjinia" required><br>
 
                 <label for="qendraMjekesore" class="col-sm-3 mt-10 fz25 ">Qendra :</label>
-                <input style="width: 50%" type="text" name="Qendra" id="qendraMjekesore"><br>
+                <input style="width: 50%" type="text" name="Qendra" id="qendraMjekesore" pattern="[a-zA-Z0-9\s]{1,30}"  oninvalid="setCustomValidity('Numi i Qendres duhet te jete 1-30')" onchange="try{setCustomValidity('')}catch(e){}"  required><br>
 
                 <label for="email" class="col-sm-3 mt-10 fz25 ">Email:</label>
-                <input style="width: 50%" type="text" name="Email" id="email"><br>
+                <input style="width: 50%" type="text" name="Email" id="email"   pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" oninvalid="setCustomValidity('Ju lutem shkruani email-in ne menyre korrekte, psh. example@example.com')" onchange="try{setCustomValidity('')}catch(e){}" required><br>
+                
                 <label for="password" class="col-sm-3 mt-10 fz25 ">Password:</label>
-                <input style="width: 50%" type="password" name="Password" id="password"><br>
+                <input style="width: 50%" type="password" name="Password" id="password" pattern="[a-zA-Z0-9\s]{8,50}"  oninvalid="setCustomValidity('Passwordi duhet te kete te pakten 8 karaktere')" onchange="try{setCustomValidity('')}catch(e){}" required><br>
+                
                 <div class="col-sm-6"></div>
                 <button type="sumbit" name="addUser" class="col-sm-3">Shto pacient</button><br>
 

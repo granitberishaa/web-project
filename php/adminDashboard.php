@@ -22,9 +22,9 @@ if(!(isset($_SESSION["IsAdmin"]) && $_SESSION["IsAdmin"]))
 <div class="wrapper">
     <div class="row">
 <!--        left-side-->
-        <div class="col-sm-3 bg-green"  style="height: 750px;">
+        <div class="col-sm-3 bg-green"  style="height: auto">
             <img src="../img/logo.png" class="col-sm-5 mt-10" alt="">
-            <h1 class="text-center">E-Health </h1><hr>
+            <h1 class="text-center"><a href="index.php">E-Health </a></h1><hr>
 
             <i class="fas fa-user-md fa-2x col-sm-3"></i>
             <h3><a class="cl-white" href="adminDashboard.php">Dashboard</a></h3><hr>
@@ -49,20 +49,20 @@ if(!(isset($_SESSION["IsAdmin"]) && $_SESSION["IsAdmin"]))
         </div>
 
 <!--        right-side-->
-        <div class="col-sm-8 bg-gr" style="height: 750px;">
+        <div class="col-sm-8 bg-gr" style="height: auto">
             <i class="fas fa-user-md fa-4x col-sm-4 text-right mt-40"></i>
             <h2 class="col-sm-6 mt-50 ">Admin</h2>
 
             <form action="" class="col-sm-12 mt-80">
 
                 <label for="emri" class="col-sm-3 mt-10 fz25 ">Emri:</label>
-                <input style="width: 50%" type="text" name="emri" id="emri" value="<?= $_SESSION['Name'] ?>"><br>
+                <input style="width: 50%" type="text" name="emri" id="emri" readonly value="<?= $_SESSION['Name'] ?> "><br>
                 <label for="mbiemri" class="col-sm-3 mt-10 fz25 ">Mbiemri:</label>
-                <input style="width: 50%" type="text" name="mbiemri" id="mbiemri" value="<?= $_SESSION['LastName'] ?>"><br>
+                <input style="width: 50%" type="text" name="mbiemri" id="mbiemri" readonly value="<?= $_SESSION['LastName'] ?>"><br>
                 <label for="email" class="col-sm-3 mt-10 fz25 ">Email:</label>
-                <input style="width: 50%" type="text" name="email" id="email" value="<?= $_SESSION['Email'] ?>"><br>
+                <input style="width: 50%" type="text" name="email" id="email" readonly value="<?= $_SESSION['Email'] ?>"><br><!-- 
                 <label for="password" class="col-sm-3 mt-10 fz25">Password:</label>
-                <input style="width: 50%" type="password" name="password" id="password"><br>
+                <input style="width: 50%" type="password" name="password" id="password"><br> -->
 
 
             </form>

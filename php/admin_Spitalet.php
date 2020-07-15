@@ -1,13 +1,3 @@
-<?php
- session_start();
- if(!isset($_SESSION['IsAdmin'])){
-     $_SESSION["ErrorMessage"] = "Ju nuk keni qasje ne ket faqe";
-     
-     header("Location: index.php");
-     
-     exit();
- }
- ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,21 +15,44 @@
 <div class="wrapper">
     <div class="row">
         <!--        left-side-->
-        <?php include ("../include/row.php") ?>
+        <div class="col-sm-3 bg-green"  style="height: auto;">
+            <img src="../img/logo.png" class="col-sm-5 mt-10" alt="">
+            <h1 class="text-center"><a href="index.php">E-Health </a></h1><hr>
+
+            <i class="fas fa-user-md fa-2x col-sm-3"></i>
+            <h3><a class="cl-white" href="adminDashboard.php">Dashboard</a></h3><hr>
+
+            <i class="fas fa-user-md fa-2x col-sm-3"></i>
+            <h3><a class="cl-white" href="admin_Pacienti.php">Pacienti</a></h3><hr>
+
+            <!--            <i class="fas fa-user-md fa-2x col-sm-3"></i>-->
+            <!--            <h3><a class="cl-white" href="#">Rreth Nesh</a></h3><hr>-->
+
+            <i class="fas fa-user-md fa-2x col-sm-3"></i>
+            <h3 class="col-9"><a class="cl-white" href="admin_Mjeku.php">Mjeku</a></h3><hr>
+
+            <i class="fas fa-user-md fa-2x col-sm-3"></i>
+            <h3><a class="cl-white" href="admin_Spitalet.php">Spitalet</a></h3><hr>
+
+<!--            <i class="fas fa-user-md fa-2x col-sm-3"></i>-->
+<!--            <h3><a class="cl-white" href="#">Settings</a></h3><hr>-->
+
+            <i class="fas fa-user-md fa-2x col-sm-3"></i>
+            <h3><a class="cl-white" href="logout.php">Log out</a></h3>
+        </div>
 
         <!--        right-side-->
-        <div class="col-sm-8 bg-gr" style="height: 750px;">
+        <div class="col-sm-8 bg-gr" style="height: auto">
             <i class="fas fa-user-md fa-4x col-sm-3 text-right mt-40"></i>
             <h2 class="col-sm-3 mt-50 ">Spitalet</h2>
             <button class="col-sm-3 mt-50">Shiko te gjitha spitalet</button>
 
             <form action="" class="col-sm-12 mt-80">
                 <label for="emri" class="col-sm-3 mt-10 fz25 ">Emri:</label>
-                <input style="width: 50%" type="text" name="emri" id="emri"><br>
-
+               <input style="width: 50%" type="text" name="Name" id="emri"   pattern="[a-zA-Z0-9\s]{5,30}" oninvalid="setCustomValidity('Emri i Qendres Mjekesore duhet te jete te pakten 5 karaktere')" onchange="try{setCustomValidity('')}catch(e){}" required ><br>
+                
                 <label for="lokacioni" class="col-sm-3 mt-10 fz25 ">Lokacioni:</label>
-                <input style="width: 50%" type="text" name="lokacioni" id="lokacioni"><br>
-
+                <input style="width: 50%" type="text" name="lokacioni" id="lokacioni"   pattern="[a-zA-Z0-9\s]{10,20}" oninvalid="setCustomValidity('Lokacioni duhet te jete te pakten 10 karaktere')" onchange="try{setCustomValidity('')}catch(e){}" required ><br>
 
                 <div class="col-sm-6"></div>
                 <button class="col-sm-3">Shto spital</button><br>
