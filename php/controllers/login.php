@@ -13,7 +13,7 @@ if (isset($_SESSION['IsAdmin'])) {
     $result = mysqli_query($connection, $sqlcommand);
 
     $numberOfRows = mysqli_num_rows($result); 
-    if ($numberOfRows == 1) {
+    if ($numberOfRows >= 1) {
 
         $row = mysqli_fetch_assoc($result); 
         $PasswordDeHashedCheck = password_verify($Password, $row["Password"]);

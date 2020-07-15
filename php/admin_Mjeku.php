@@ -1,12 +1,21 @@
 <?php
  session_start();
+ require 'controllers/User.php';
  if(!isset($_SESSION['IsAdmin'])){
     $_SESSION["ErrorMessage"] = "Ju nuk keni qasje ne ket faqe";
      
     header("Location: index.php");
     
     exit();
- }
+ }else if (isset($_GET['getAdmins'])){
+    $user = new User();
+    $users = $user->getAllUsers(1);
+    
+     
+ } else if (isset($_POST["addAdmin"])){
+     $user = new User();
+     $user->createUser($_POST['Name'],$_POST['LastName'],$_POST['Age'],$_POST['Gender'],$_POST['Qendra'], $_POST['Email'],$_POST['Password'], 1);
+ }  
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,9 +37,11 @@
         <div class="col-sm-8 bg-gr" style="height: 750px;">
             <i class="fas fa-user-md fa-4x col-sm-3 text-right mt-40"></i>
             <h2 class="col-sm-3 mt-50 ">Mjeku</h2>
-            <button class="col-sm-3 mt-50">Shiko te gjithe mjeket</button>
+            <form action="admin_Mjeku.php" class="col-sm-12 mt-80" method="get">
+            <button class="col-sm-3 mt-50" type="submit" name="getAdmins">Shiko te gjithe mjeket</button>
+            </form>
 
-            <form action="" class="col-sm-12 mt-80">
+            <form action="admin_Mjeku.php" class="col-sm-12 mt-80" method="post">
                 <label for="emri" class="col-sm-3 mt-10 fz25 ">Emri:</label>
                 <input style="width: 50%" type="text" name="emri" id="emri"><br>
                 <label for="mbiemri" class="col-sm-3 mt-10 fz25 ">Mbiemri:</label>
@@ -48,7 +59,7 @@
                 <label for="password" class="col-sm-3 mt-10 fz25 ">Password:</label>
                 <input style="width: 50%" type="password" name="password" id="password"><br>
                 <div class="col-sm-6"></div>
-                <button class="col-sm-3">Shto mjek</button><br>
+                <button type="sumbit" name="addAdmin" class="col-sm-3">Shto mjek</button><br>
 
 
             </form>
