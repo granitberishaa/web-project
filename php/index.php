@@ -1,3 +1,10 @@
+<?php
+ if(!isset($_SESSION['ErrorMessage']))
+     $_SESSION['ErrorMessage'] = '';
+ include ('controllers/login.php');
+ include ('controllers/register.php');
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,6 +22,7 @@
 <div class="wrapper">
     <div class="wrapper-1">
     <?php include('../include/header.php');?>
+    <p class="ErrorMessage"><?php echo $_SESSION['ErrorMessage'] ?></p>
         <div class="description">
             <h3>Health first, health application second!</h3>
             <h5>Lorem ipsum dolor sit amet consequuntur culpa isi numquam quam rerum saepe, sunt ut voluptate voluptates voluptatum.</h5>
@@ -71,18 +79,17 @@
                     </ol>
                 </div>
             </div>
-            <div id="loginPage" class="modal">
-                <span onclick="closeLogin()"
-                      class="close" title="Close Modal">&times;</span>
-                <form class="modal-content animate" action="validate.php">
+            <div id="loginPage" class="modal" >
+                <span onclick="closeLogin()" class="close" title="Close Modal">&times;</span>
+                <form name="loginForm" class="modal-content animate" action="controllers/login.php" method="post">
                     <div class="container">
-                        <label for="uname"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="uname" required>
+                        <label for="Email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Username" name="Email" required>
 
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
+                        <label for="Password"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="Password" required>
 
-                        <button type="button" onclick="loginUser()">Login</button>
+                        <button name="LogInButton" type="subimt" >Login</button>
                         <label>
                             <input type="checkbox" checked="checked" name="remember"> Remember me
                         </label>
@@ -98,24 +105,39 @@
             <div id="registerPage" class="modal">
                 <span onclick="closeRegister()"
                       class="close" title="Close Modal">&times;</span>
-                <form class="modal-content animate" action="register.php">
+                <form name="registrationForm" class="modal-content animate" action="controllers/register.php" method="post">
+                <p class="ErrorMessage"><?php echo $_SESSION['ErrorMessage'] ?></p>
                     <div class="container">
-                        <label for="name"><b>Name</b></label>
-                        <input type="text" id="name" placeholder="Enter Name" name="name" required>
+                        <label for="Name"><b>Name</b></label>
+                        <input type="text" id="Name" placeholder="Enter Name" name="Name" 
+                        pattern="[a-zA-Z0-9\s]{2,20}" oninvalid="setCustomValidity('Please write between 2 and 20 characters ')" onchange="try{setCustomValidity('')}catch(e){}"
+                         required>
 
-                        <label for="surnmae"><b>Surname</b></label>
-                        <input type="text" placeholder="Enter Surname" name="surname" required>
+                        <label for="LastName"><b>Surname</b></label>
+                        <input type="text" placeholder="Enter Surname" name="LastName" 
+                        pattern="[a-zA-Z0-9\s]{2,20}" oninvalid="setCustomValidity('Please write between 2 and 20 characters ')" onchange="try{setCustomValidity('')}catch(e){}"
+                        required>
 
-                        <label for="email"><b>Email</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" required>
+                        <label for="Email"><b>Email</b></label>
+                        
+                        <input type="text" placeholder="Enter Email" name="Email"
+                        pattern="^\S+@\S+$" oninvalid="setCustomValidity('Please write proper email example@example.com')" onchange="try{setCustomValidity('')}catch(e){}"
+                         required>
 
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
+                        <label for="Age"><b>Age</b></label>
+                        <input type="text" placeholder="Enter Age" name="Age" oninvalid="setCustomValidity('age must be between 12-120')"
+                        required>
+
+                        <label for="Gender"><b>Gender</b></label>
+                        <input type="text" placeholder="Enter Gender" name="Gender" required>
+
+                        <label for="Password"><b>Password</b></label>
+                        <input type="Password" placeholder="Enter Password" name="Password" required>
 
                         <label for="pswConfirmation"><b>Confirm Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="pswConfirmation" required>
+                        <input type="Password" placeholder="Enter Password" name="PasswordConfirmation" required>
 
-                        <button type="button" onclick="registerUser()">Register</button>
+                        <button name="RegisterButton" type="submit" >Register</button>
                         <label>
                             <input type="checkbox" checked="checked" name="remember"> Remember me
                         </label>

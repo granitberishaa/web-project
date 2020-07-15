@@ -29,24 +29,36 @@ function openLogin(){
     login.style.display='block'
 }
 function registerUser(){
-    checkValue("name")
-    checkValue("surname")
-    checkValue("email")
-    checkPassword("psw", "pswConfirmation")
+    if (checkValue("Name") && checkValue("LastName") && checkValue("Email") && checkValue("Gender")  && checkValue("Age") && checkPassword("Password", "PasswordConfirmation"))
+       {
+            console.log('vvvv')
+           return true;
+       } else {
+           console.log("gggg");
+           alert("Validation failed")
+           return false
+       }
 }
 
 function checkValue(value){
-    let valueCheck = document.getElementsByName(`${value}`)[0].value
-    console.log(valueCheck)
+    console.log(value)
+    console.log(document.getElementsByName(`${value}`))
+    let valueCheck = document.getElementsByName(`${value}`)[0].value ? document.getElementsByName(`${value}`)[0].value  : document.getElementsByName(`${value}`)[1].value 
     if(valueCheck){
         return true
     } else {
         alert(`invalid value for ${value}`)
+        return false
     }
 
 }
 function checkPassword(psw, pswConf){
-    if(psw != pswConf){
+    let Password = document.getElementsByName(`${psw}`)[0].value ? document.getElementsByName(`${psw}`)[0].value : document.getElementsByName(`${psw}`)[1].value
+    let PasswordConf = document.getElementsByName(`${pswConf}`)[0].value ? document.getElementsByName(`${pswConf}`)[0].value : document.getElementsByName(`${pswConf}`)[1].value
+    if(Password != PasswordConf){
         alert("Passwords dont match");
+        return false
+    } else {
+        return true
     }
 }

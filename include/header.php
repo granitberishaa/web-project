@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <header id="top-header">
   <a href="index.php"><img src="../img/logo.png" alt=""></a>
   <ul class="top-icons">
