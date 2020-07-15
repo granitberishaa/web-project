@@ -54,7 +54,7 @@ class User
     <td>" . $row['Gender'] . "</td>
     <td>" . ($row['Priority'] == 1 ? 'Admin' : 'User') . "</td>
     <td><a href=\"updateUser.php?edit=$User_Id\"><img src=\"../images/update.png\" width=\"30\" height=\"30\" style=\"margin-left: 25%;\"></a></td>
-    <td><a href=\"deleteUser.php?edit=$User_Id\"><img src=\"../images/delete.png\" width=\"30\" height=\"30\" style=\"margin-left: 25%;\"></a></td>
+    <td><a href=\"controllers/deleteUser.php?edit=$User_Id\"><img src=\"../images/delete.png\" width=\"30\" height=\"30\" style=\"margin-left: 25%;\"></a></td>
   </tr>";
         }
         echo "</table>";
