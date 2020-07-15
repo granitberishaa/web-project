@@ -1,14 +1,10 @@
 <?php
- session_start();
- if(!isset($_SESSION['IsAdmin'])){
-     $_SESSION["ErrorMessage"] = "Ju nuk keni qasje ne ket faqe";
-     
-     header("Location: index.php");
-     
-     exit();
- }
- ?>
+if(!isset($_SESSION))
+    session_start();
 
+if(!(isset($_SESSION["IsAdmin"]) && $_SESSION["IsAdmin"]))
+    header("location: index.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +22,31 @@
 <div class="wrapper">
     <div class="row">
 <!--        left-side-->
-        <?php include ("../include/row.php") ?>
+        <div class="col-sm-3 bg-green"  style="height: 750px;">
+            <img src="../img/logo.png" class="col-sm-5 mt-10" alt="">
+            <h1 class="text-center">E-Health </h1><hr>
+
+            <i class="fas fa-user-md fa-2x col-sm-3"></i>
+            <h3><a class="cl-white" href="adminDashboard.php">Dashboard</a></h3><hr>
+
+            <i class="fas fa-user-md fa-2x col-sm-3"></i>
+            <h3><a class="cl-white" href="admin_Pacienti.php">Pacienti</a></h3><hr>
+
+<!--            <i class="fas fa-user-md fa-2x col-sm-3"></i>-->
+<!--            <h3><a class="cl-white" href="#">Rreth Nesh</a></h3><hr>-->
+
+            <i class="fas fa-user-md fa-2x col-sm-3"></i>
+            <h3 class="col-9"><a class="cl-white" href="admin_Mjeku.php">Mjeku</a></h3><hr>
+
+            <i class="fas fa-user-md fa-2x col-sm-3"></i>
+            <h3><a class="cl-white" href="admin_Spitalet.php">Spitalet</a></h3><hr>
+
+<!--            <i class="fas fa-user-md fa-2x col-sm-3"></i>-->
+<!--            <h3><a class="cl-white" href="#">Settings</a></h3><hr>-->
+
+            <i class="fas fa-user-md fa-2x col-sm-3"></i>
+            <h3><a class="cl-white" href="logout.php">Log out</a></h3>
+        </div>
 
 <!--        right-side-->
         <div class="col-sm-8 bg-gr" style="height: 750px;">
@@ -36,12 +56,12 @@
             <form action="" class="col-sm-12 mt-80">
 
                 <label for="emri" class="col-sm-3 mt-10 fz25 ">Emri:</label>
-                <input style="width: 50%" type="text" name="emri" id="emri"><br>
+                <input style="width: 50%" type="text" name="emri" id="emri" value="<?= $_SESSION['Name'] ?>"><br>
                 <label for="mbiemri" class="col-sm-3 mt-10 fz25 ">Mbiemri:</label>
-                <input style="width: 50%" type="text" name="mbiemri" id="mbiemri"><br>
+                <input style="width: 50%" type="text" name="mbiemri" id="mbiemri" value="<?= $_SESSION['LastName'] ?>"><br>
                 <label for="email" class="col-sm-3 mt-10 fz25 ">Email:</label>
-                <input style="width: 50%" type="text" name="email" id="email"><br>
-                <label for="password" class="col-sm-3 mt-10 fz25 ">Password:</label>
+                <input style="width: 50%" type="text" name="email" id="email" value="<?= $_SESSION['Email'] ?>"><br>
+                <label for="password" class="col-sm-3 mt-10 fz25">Password:</label>
                 <input style="width: 50%" type="password" name="password" id="password"><br>
 
 
