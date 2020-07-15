@@ -375,3 +375,42 @@ input[type=text], input[type=password] {
 }
 
 
+
+#prevb{
+position: absolute;
+top: 50%;
+z-index:10;
+left:5%;
+font-size: 30px;
+color:white;
+
+cursor: pointer;
+}
+#nextb{
+position: absolute;
+top: 50%;
+z-index:10;
+right:5%;
+font-size: 30px;
+color:white;
+
+cursor: pointer;
+}
+
+
+
+.slider{
+margin:auto;
+overflow: hidden;
+position: relative;
+
+  }
+  
+.slider1{
+display: flex;
+}
+
+
+
+
+
