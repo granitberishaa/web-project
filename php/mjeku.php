@@ -1,3 +1,11 @@
+<?php 
+session_start();
+require('C:\\wamp64\\www\\web-project\\php\\config.php');
+$qb = "select * from Users where Priority = '1'";
+$mjeket = mysqli_query($connection, $qb) or die("Error description: " . mysqli_error($connection));
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,17 +26,9 @@
         <h2>Mjeket tone me te vleresuar</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at atque impedit ipsa, optio quidem unde vitae voluptatum? Deserunt earum, excepturi id illo laudantium officia omnis praesentium quae repellendus voluptatibus.</p>
         <div class="box">
-
-            <div class="box-1">
-                <img class="imgSz" src="../img/mjeku1.png" alt=""><br>
-                <p>Dr.Phillips Gordon</p>
-            </div>
-            <div class="box-1"><img class="imgSz" src="../img/mjeku2.jpg" alt=""><br><p>Dr.William Willson</p></div>
-            <div class="box-1"><img class="imgSz" src="../img/mjeku3.jpg" alt=""><br><p>Dr.Withdrew Sony</p></div>
-            <div class="box-1"><img class="imgSz" src="../img/mjeku6.jpg" alt=""><br><p>Dr.Amber Crudson</p></div>
-            <div class="box-1"><img class="imgSz" src="../img/mjeku4.jpg" alt=""><br><p>Dr.Rickson Sumberson</p></div>
-            <div class="box-1"><img class="imgSz" src="../img/mjeku5.jpg" alt=""><br><p>Dr.Elizabeth Walker</p></div>
-
+        <?php foreach($mjeket as $mjek): ?>
+            <div class="box-1"><img class="imgSz" src="<?php echo '../img/mjeket/'.$mjek['User_Id'].'.'.$mjek['photo'];?>" alt=""><br><p><?php echo "Dr.".$mjek['Name']." ".$mjek['LastName'] ?></p></div>
+        <?php endforeach ?>
          </div>
         <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias atque autem consequatur consequuntur dicta doloribus eius eos explicabo ipsam iste, itaque laudantium neque perspiciatis recusandae repudiandae sapiente tenetur ut.</span><span>Cum dicta ducimus esse eveniet ex, illo inventore iure maiores, minus mollitia necessitatibus nobis nostrum porro. Ad amet aspernatur commodi deserunt eos illo, magni molestias mollitia quasi repellat similique voluptatibus?</span></p>
 

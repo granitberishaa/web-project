@@ -1,3 +1,11 @@
+<?php 
+session_start();
+require('C:\\wamp64\\www\\web-project\\php\\config.php');
+$qb = "select * from aboutUs";
+$aboutuss = mysqli_query($connection, $qb) or die("Error description: " . mysqli_error($connection));
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,7 +13,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mjeku</title>
+    <title>Rreth Nesh</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/services.css">
     <script type="text/javascript" src="../scripts/indexScript.js"></script>
@@ -13,38 +21,17 @@
 <body>
 
 <div class="wrapper">
-    <?php include('../include/header.php');?>
+    <?php include('../include/header.php'); ?>
     <main>
+    <?php foreach($aboutuss as $aboutus): ?>
         <div class="box">
-            <h1>Vizioni yne</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias aliquid cupiditate debitis dolorem ea illo ipsa quae qui quisquam similique, ut. Consequatur dolor expedita minima nulla omnis porro rem?</p>
+            <h1><?php echo $aboutus['title']; ?></h1>
+            <p><?php echo $aboutus['text']; ?></p>
         </div>
-        <div class="box">
-            <img src="../img/misioni.png" alt="Vision-logo">
+        <div class="box">   
+            <img src="<?php echo '../img/aboutUsImg/'.$aboutus['id'].'.'.$aboutus['photo'];?>" alt="Vision-logo">
         </div>
-
-        <div class="box">
-            <h1>Mjeket</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias aliquid cupiditate debitis dolorem ea illo ipsa quae qui quisquam similique, ut. Consequatur dolor expedita minima nulla omnis porro rem?</p>
-        </div>
-        <div class="box">
-            <img src="../img/mjeket.png" alt="Vision-logo">
-        </div>
-
-        <div class="box">
-            <img style="float: left" src="../img/siguria.png" alt="Vision-logo">
-        </div>
-        <div class="box">
-            <h1>Siguria</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias aliquid cupiditate debitis dolorem ea illo ipsa quae qui quisquam similique, ut. Consequatur dolor expedita minima nulla omnis porro rem?</p>
-        </div>
-        <div class="box">
-            <h1>Skuadra jone</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias aliquid cupiditate debitis dolorem ea illo ipsa quae qui quisquam similique, ut. Consequatur dolor expedita minima nulla omnis porro rem?</p>
-        </div>
-        <div class="box">
-            <img src="../img/skuadra.png" alt="Vision-logo">
-        </div>
+    <?php endforeach; ?>
     </main>
     <?php include('../include/footer.php');?>
 

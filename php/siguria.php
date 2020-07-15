@@ -1,3 +1,12 @@
+<?php 
+session_start();
+require('C:\\wamp64\\www\\web-project\\php\\config.php');
+$qb = "select * from siguria";
+$sigurit = mysqli_query($connection, $qb) or die("Error description: " . mysqli_error($connection));
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,14 +29,16 @@
         </div>
     </div>
         <main>
+        <?php foreach($sigurit as $siguria): ?>
             <div class="box">
-                <img style="float: left" src="../img/siguria.png" alt="Vision-logo">
-                <p style="margin-right: 60px"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos iure, sapiente! Accusantium corporis exercitationem explicabo illum inventore, ipsa, ipsum iusto, magnam magni maxime molestiae perspiciatis sed tempora tempore ullam. Suscipit!</span><span>A ab accusamus atque deleniti ea esse fuga laborum neque non, officia quam sed! Accusantium amet autem dolore earum eveniet fuga hic, illo ipsa laborum maxime necessitatibus, neque, pariatur quo.</span></p>
+                <img style="float: left" src="<?php echo '../img/siguria/'.$siguria['id'].'.'.$siguria['photo'];?>" alt="Vision-logo">
+                <p style="margin-right: 60px"><span><?php echo $siguria['text'] ?></span></p>
             </div>
             <div class="box">
-                <h1>Siguria</h1>
-                <p>Lorem ipsum <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet architecto dicta, doloribus ducimus excepturi facilis impedit incidunt libero molestias nostrum perferendis porro quam qui repellendus saepe sint suscipit tenetur.</span><span>Amet, aut blanditiis consequatur culpa dolore harum modi molestiae nemo, quaerat quam quas rem sapiente vero, voluptas voluptatem. Accusantium consequuntur dolores minima officiis quam tempora? Corporis debitis eaque itaque nihil.</span><span>Animi asperiores corporis debitis doloremque dolores doloribus eligendi eos, et fuga harum, illum impedit, iusto minima nemo neque odio quasi sapiente vitae. Consectetur dignissimos eaque laudantium odit optio sed sunt?</span>dolor sit amet, consectetur adipisicing elit. A alias aliquid cupiditate debitis dolorem ea illo ipsa quae qui quisquam similique, ut. Consequatur dolor expedita minima nulla omnis porro rem?</p>
+                <h1><?php echo $siguria['title'] ?></h1>
+                <p><?php echo $siguria['text'] ?></p>
             </div>
+        <?php endforeach ?>
         </main>
         <?php include('../include/footer.php');?>
 </div>

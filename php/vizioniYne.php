@@ -1,3 +1,11 @@
+<?php 
+session_start();
+require('C:\\wamp64\\www\\web-project\\php\\config.php');
+$qb = "select * from vizioniYn";
+$vizionet = mysqli_query($connection, $qb) or die("Error description: " . mysqli_error($connection));
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,14 +28,16 @@
     </div>
 </div>
 <main>
+<?php foreach($vizionet as $vizioni): ?>
     <div class="box">
-        <h1>Vizioni yne</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adip <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolorum ipsam iste laboriosam laborum quam quidem similique. Accusamus delectus deleniti et fuga fugit hic mollitia necessitatibus numquam officiis, unde vitae.</span><span>Ab beatae commodi debitis dolor esse illum itaque iure quos velit! Accusamus at blanditiis distinctio dolorem dolores ea, ex expedita id libero natus neque numquam pariatur reiciendis vero volu Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ipsam, voluptas. Blanditiis distinctio, dolor eaque eligendi error est Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad atque, consequatur exercitationem illum, impedit incidunt laboriosam libero, maiores modi molestias nobis similique unde voluptas voluptate! Consequatur, impedit, sapiente! Animi? hic iste itaque nam nemo perspiciatis quaerat quasi rerum suscipit veniam, voluptas?ptate voluptates.</span><span>Asperiores blanditiis corporis culpa cumque debitis deserunt dolore dolorum ducimus eos, eum facere, illo in inventore magni maiores minima modi nemo nisi quam quasi quidem quos, tempora unde vel veritatis.</span><span>Alias commodi culpa cum cumque cupiditate deserunt doloremque eius eligendi enim error est excepturi explicaboatum?</span> isicing elit. A alias aliquid cupiditate debitis dolorem ea illo ipsa quae qui quisquam similique, ut. Consequatur dolor expedita minima nulla omnis porro rem?</p>
+        <h1><?php echo $vizioni['title']; ?></h1>
+        <p><?php echo $vizioni['text']; ?></p>
     </div>
     <div class="box">
-        <img src="../img/misioni.png" alt="Vision-logo">
-        <p style="margin-left: 50px">Lorem ipsum dolor sit amet, <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur delectus excepturi, libero molestias nam numquam vero! Aperiam beatae cupiditate dolores error harum impedit, laborum, magni obcaecati possimus repellat rerum veritatis.</span><span>Accusantium adipisci deserunt quis sunt tempora. A assumenda debitis dignissimos doloremque in ipsam ipsum nemo neque nulla perferendis placeat, qui recusandae, repellat sapiente sequi tempora voluptates voluptatum. Ipsa, nam quisquam?</span> consectetur adipisicing elit. Aliquam, aut distinctio doloribus eos esse hic illo ipsam ipsum maxime nam nesciunt pariatur placeat quis ratione, reiciendis suscipit vitae. Suscipit, ut?</p>
+        <img src=<?php echo '../img/vizioniYn/'.$vizioni['id'].'.'.$vizioni['photo'];?> alt="Vision-logo">
+        <p style="margin-left: 50px"><?php echo $vizioni['text']; ?></p>
     </div>
+<?php endforeach; ?>
 </main>
 <?php include('../include/footer.php');?>
 </div>
