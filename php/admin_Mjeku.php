@@ -88,7 +88,7 @@
 			    <input class="textbox" name="fileToUpload" id="fileToUpload" type="file"/>
 
                 <div class="col-sm-6"></div>
-                <button type="sumbit" name="sumbit" class="col-sm-3" class="submit">Shto pacient</button><br>
+                <button type="sumbit" name="sumbit" class="col-sm-3" class="submit">Shto Mjek</button><br>
 
 
             </form>

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require('C:\xampp\htdocs\projekti\webnew\web-project-master\php\config.php');
+require('C:\\wamp64\\www\\web-project\\php\\config.php');
 $qb = "select * from Users where Priority = '1'";
 $mjeket = mysqli_query($connection, $qb) or die("Error description: " . mysqli_error($connection));
 
