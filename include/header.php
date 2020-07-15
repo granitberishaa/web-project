@@ -1,8 +1,12 @@
-<?php session_start(); ?>
+<?php 
+if(!isset($_SESSION))
+  session_start();
+// var_dump($_SESSION);
+?>
 <header id="top-header">
   <a href="index.php"><img src="../img/logo.png" alt=""></a>
   <ul class="top-icons">
-      <li><a href="#">PACIENTI</a></li>
+      <!-- <li><a href="#">PACIENTI</a></li> -->
       <li>
           <div class="dropdown">
               <a href="rrethNesh.php"><span class="rrN">RRETH NESH</span></a>
@@ -21,20 +25,21 @@
               <a href="#"><span class="rrN">MENU</span></a>
               <i style="color: #93c520" class="fas fa-bars"></i>
               <div class="dropdown-content">
-              <?php if (isset($_SESSION['IsAdmin']) && $_SESSION['IsAdmin'] == 1): ?>
-                  <a href="adminDashboard.php"><p>Admin Dashboard</p></a><br>
-              <?php endif; ?>  
+                  <a href="vizioniYne.php"><p>Vizioni yne</p></a><br>
                   <a href="mjeku.php"><p>Mjeket</p></a><br>
                   <a href="siguria.php"><p>Siguria</p></a>
+                  <?php if(isset($_SESSION["IsAdmin"]) && $_SESSION["IsAdmin"]): ?>
+                    <a href="adminDashboard.php"><p>Admin Dashboard</p></a>
+                  <?php endif ?>
               </div>
           </div>
       </li>
-      <?php if (!isset($_SESSION['IsAdmin'])): ?>
-      <li id="authButton"><button onclick="openLogin()">Login</button></li>
-      <li id="authButton"><button onclick="openRegister()">Register</button></li>
-      <?php endif; ?>
-      <?php if (isset($_SESSION['IsAdmin'])): ?>
-      <li id="authButton"><a href="controllers/logout.php">Logout</a></li>
-      <?php endif; ?>
+      <?php if(isset($_SESSION["User_ID"])): ?>
+        <?= $_SESSION["Name"] ?>
+        <li id="authButton"><button onclick="window.location.href = 'logout.php';">Logout</button></li>
+      <?php else: ?>
+        <li id="authButton"><button onclick="openLogin()">Login</button></li>
+        <li id="authButton"><button onclick="openRegister()">Register</button></li>
+      <?php endif ?>
   </ul>
 </header>
