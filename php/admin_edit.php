@@ -2,26 +2,22 @@
  session_start();
  require 'controllers/User.php';
  if(!isset($_SESSION['IsAdmin'])){
-    $_SESSION["ErrorMessage"] = "Ju nuk keni casje ne kete faqe";
+     $_SESSION["ErrorMessage"] = "Ju nuk keni qasje ne ket faqe";
      
-    header("Location: index.php");
-    
-    exit();
- // }else if (isset($_GET['getAdmins'])){
- //    $user = new User();
- //    $users = $user->getAllUsers(1);
-    
+     header("Location: index.php");
      
- } else if (isset($_POST["addAdmin"])){
+     exit();
+ } else if (isset($_POST["addUser"])){
      $user = new User();
-     $user->createUser($_POST['Name'],$_POST['LastName'],$_POST['Age'],$_POST['Gender'],$_POST['Qendra'], $_POST['Email'],$_POST['Password'], 1);
+     $user->createUser($_POST['Name'],$_POST['LastName'],$_POST['Age'],$_POST['Gender'],$_POST['Qendra'], $_POST['Email'],$_POST['Password'], 0);
  }  
  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Mjeku</title>
+    <title>Admin Pacienti</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -32,23 +28,24 @@
 </head>
 <body>
 <div class="wrapper">
-       <?php include ("../include/row.php") ?>
+        <?php include ("../include/row.php") ?>
+
         <!--        right-side-->
+
         <div class="col-sm-8 bg-gr" style="height: auto;">
             <!-- <i class="fas fa-user-md fa-4x col-sm-3 text-right mt-40"></i> -->
-            <h2 class="col-sm-3 mt-50 ">Mjeku</h2>
-            <form action="admin_Mjeku.php" class="col-sm-12" method="get">
-            <button class="col-sm-3" type="submit" name="getAdmins">Shiko te gjithe mjeket</button>
-            </form>
+            <h2 class="col-sm-12 mt-50" style="margin-left:300px"> Edit</h2>
+            <!-- <form action="admin_Pacienti.php" class="col-sm-7 mt-40 " method="get"> -->
+            <!-- <button class="col-sm-5 " type="submit" name="getUsers">Shiko te gjithe pacientet</button> -->
+            <!-- </form> -->
             <?php
-        if (isset($_GET['getAdmins'])){
+        if (isset($_GET['getUsers'])){
     $user = new User();
-    $users = $user->getAllUsers(1); 
+    $users = $user->getAllUsers(0); 
  }
         ?>
-
-        <form action="admin_Mjeku.php" class="col-sm-12" method="post">
-              <label for="emri" class="col-sm-3 mt-10 fz25 ">Emri:</label>
+            <form action="admin_Pacienti.php" method="post" class="col-sm-12 mt-10">
+                <label for="emri" class="col-sm-3 mt-10 fz25 ">Emri:</label>
                 <input style="width: 50%" type="text" name="Name" id="emri"   pattern="[a-zA-Z0-9\s]{3,20}" oninvalid="setCustomValidity('Emri juaj duhet te jete te pakten 3 karaktere')" onchange="try{setCustomValidity('')}catch(e){}" required ><br>
 
                 <label for="mbiemri" class="col-sm-3 mt-10 fz25 ">Mbiemri:</label>
@@ -70,7 +67,7 @@
                 <input style="width: 50%" type="password" name="Password" id="password" pattern="[a-zA-Z0-9\s]{8,50}"  oninvalid="setCustomValidity('Passwordi duhet te kete te pakten 8 karaktere')" onchange="try{setCustomValidity('')}catch(e){}" required><br>
                 
                 <div class="col-sm-6"></div>
-                <button type="sumbit" name="addAdmin" class="col-sm-3">Shto mjek</button><br>
+                <button type="sumbit" name="addUser" class="col-sm-3">Ruaj</button><br>
 
 
             </form>

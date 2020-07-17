@@ -1,34 +1,16 @@
 <?php
  session_start();
  require 'controllers/User.php';
- require("controllers/Upload.php");
- require('C:\\wamp64\\www\\web-project\\php\\config.php');
-
  if(!isset($_SESSION['IsAdmin'])){
      $_SESSION["ErrorMessage"] = "Ju nuk keni qasje ne ket faqe";
      
      header("Location: index.php");
      
      exit();
- } else if (isset($_POST["sumbit"])){
-    $sqlRow = 'SELECT * FROM users';
-    $result = mysqli_query($connection, $sqlRow);
-    $count1 = mysqli_num_rows($result) + 1;
-    $name = $_POST['Name'];
-    $arr = explode('.',$_FILES['fileToUpload']['name']);
-    $photo = strtolower(end($arr));
-    $date = date("Y-m-d H:i:s");
-    $user = new User();
-    if(empty($name) || empty($_POST['LastName']) || empty($_POST['Age']) || empty($_POST['Gender']) || empty($_POST['Qendra']) || empty($_POST['Email']) || empty($_POST['Password'])){
-        echo "<script>alert('Please fill all the fields marked with *.');</script>";
-    } else {
-         if(upload($count1.'.'.$photo, "usersImg") && $user->createUser($_POST['Name'],$_POST['LastName'],$_POST['Age'],$_POST['Gender'],$_POST['Qendra'], $_POST['Email'],$_POST['Password'] , 0, $photo, $date, $date)) {
-             echo "<script>alert('Successfully created product.');</script>";
-         } else {
-             echo "<script>alert('A problem occurred creating product.');</script>";
-         }
-    }
-}  
+ } else if (isset($_POST["addUser"])){
+     $user = new User();
+     $user->createUser($_POST['Name'],$_POST['LastName'],$_POST['Age'],$_POST['Gender'],$_POST['Qendra'], $_POST['Email'],$_POST['Password'], 0);
+ }  
  ?>
 
 <!DOCTYPE html>
@@ -57,12 +39,12 @@
             <button class="col-sm-3 " type="submit" name="getUsers">Shiko te gjithe pacientet</button>
             </form>
             <?php
-            if (isset($_GET['getUsers'])){
-                $user = new User();
-                $users = $user->getAllUsers(0); 
-            }
-            ?>
-            <form action="admin_Pacienti.php" method="post" class="col-sm-12 mt-80" enctype="multipart/form-data">
+        if (isset($_GET['getUsers'])){
+    $user = new User();
+    $users = $user->getAllUsers(0); 
+ }
+        ?>
+            <form action="admin_Pacienti.php" method="post" class="col-sm-12 mt-80">
                 <label for="emri" class="col-sm-3 mt-10 fz25 ">Emri:</label>
                 <input style="width: 50%" type="text" name="Name" id="emri"   pattern="[a-zA-Z0-9\s]{3,20}" oninvalid="setCustomValidity('Emri juaj duhet te jete te pakten 3 karaktere')" onchange="try{setCustomValidity('')}catch(e){}" required ><br>
 
@@ -84,16 +66,18 @@
                 <label for="password" class="col-sm-3 mt-10 fz25 ">Password:</label>
                 <input style="width: 50%" type="password" name="Password" id="password" pattern="[a-zA-Z0-9\s]{8,50}"  oninvalid="setCustomValidity('Passwordi duhet te kete te pakten 8 karaktere')" onchange="try{setCustomValidity('')}catch(e){}" required><br>
                 
-                <label for="emri" ><b>Add picture</b> </label><span>*</span>
-			    <input class="textbox" name="fileToUpload" id="fileToUpload" type="file"/>
-
                 <div class="col-sm-6"></div>
-                <button type="sumbit" name="sumbit" class="col-sm-3" class="submit">Shto pacient</button><br>
+                <button type="sumbit" name="addUser" class="col-sm-3">Shto pacient</button><br>
 
 
             </form>
         </div>
+
+
+
+
     </div>
 </div>
+
 </body>
 </html>

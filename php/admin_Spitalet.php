@@ -1,7 +1,7 @@
 <?php
  session_start();
  require("controllers/Upload.php");
- require('C:\\wamp64\\www\\web-project\\php\\config.php');
+ require (dirname(__FILE__) . '/config.php');
  if(!isset($_SESSION['IsAdmin'])){
      $_SESSION["ErrorMessage"] = "Ju nuk keni qasje ne ket faqe";
      
@@ -10,28 +10,28 @@
 
      
  }
-		
-	
+        
+    
     if(isset($_POST['submit'])){
         $sqlRow = 'SELECT * FROM spitalet';
         $result = mysqli_query($connection, $sqlRow);
         $count = mysqli_num_rows($result) + 1;
-	    $name = $_POST['Name'];
-	    $location = $_POST['Location'];
+        $name = $_POST['Name'];
+        $location = $_POST['Location'];
         $arr = explode('.',$_FILES['fileToUpload']['name']);
-	    $photo = strtolower(end($arr));
-	    $date = date("Y-m-d H:i:s");
-	    if(empty($name) || empty($location)){
-		    echo "<script>alert('Please fill all the fields marked with *.');</script>";
-	    }
-	    else{
+        $photo = strtolower(end($arr));
+        $date = date("Y-m-d H:i:s");
+        if(empty($name) || empty($location)){
+            echo "<script>alert('Please fill all the fields marked with *.');</script>";
+        }
+        else{
            $sql = "INSERT INTO spitalet (name, location, dateCreated, dateModified, photo) VALUES ('$name', '$location', '$date', '$date', '$photo')";
-		    if(upload($count.'.'.$photo, "spitaletImg") && mysqli_query($connection, $sql)) {
-		    	echo "<script>alert('Successfully created product.');</script>";
-		    } else {
-			    echo "<script>alert('A problem occurred creating product.');</script>";
-		    }
-	}
+            if(upload($count.'.'.$photo, "spitaletImg") && mysqli_query($connection, $sql)) {
+                echo "<script>alert('Successfully created product.');</script>";
+            } else {
+                echo "<script>alert('A problem occurred creating product.');</script>";
+            }
+    }
     }
     
 
@@ -68,7 +68,7 @@
             
                     $results = mysqli_query($connection, $sqlRow);
             
-                    echo "<table id='Records'>
+                    echo "<table id='Records' class='table table-dark'>
                     <tr>
                     <th>Name</th>
                     <th>Location</th>\
@@ -78,8 +78,8 @@
                         echo "<tr>
                 <td>" . $row['name'] . "</td>
                 <td>" . $row['location'] . "</td>
-                <td><a href=\"updateUser.php?edit=$id\"><img src=\"../images/update.png\" width=\"30\" height=\"30\" style=\"margin-left: 25%;\"></a></td>
-                <td><a href=\"deleteUser.php?edit=$id\"><img src=\"../images/delete.png\" width=\"30\" height=\"30\" style=\"margin-left: 25%;\"></a></td>
+                <td><a href=\"admin_editSpitalet.php?edit=$id\"><i class=\"fas fa-pen\"></i></a></td>
+                <td><a href=\"deleteUser.php?edit=$id\"><i class=\"fas fa-trash-alt\"></i></a></td>
               </tr>";
                     }
                     echo "</table>";
@@ -94,7 +94,7 @@
                 <input style="width: 50%" type="text" name="Location" id="lokacioni" pattern="[a-zA-Z0-9\s]{10,20}" oninvalid="setCustomValidity('Lokacioni duhet te jete te pakten 10 karaktere')" onchange="try{setCustomValidity('')}catch(e){}" required ><br>
 
                 <label for="emri" ><b>Add picture</b> </label><span>*</span>
-			    <input class="textbox" name="fileToUpload" id="fileToUpload" type="file"/>
+                <input class="textbox" name="fileToUpload" id="fileToUpload" type="file"/>
 
 
                 <div class="col-sm-6"></div>
